@@ -1,67 +1,33 @@
 <body>
-    <div class="container bg-warning text-center">
-        <div class="container bg-warning text-center">
-            <div class="row">
-                <div class="col-m-12 mx-auto" style="width: 400px;">
-                    <div class="jumbotron jumbotron-fluid bg-warning text-center">
-                        <div class="container text-center">
-                            <h1 class="display-4 text-danger">Eat-Da-Burger!</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <h1>Eat-Da-Burger!!</h1>
 
-        <div class="container bg-warning text-center">
-            <div class="row">
-                <div class="col-m-6 mx-auto not-eaten-burgers">
-                    <h2>Burgers Available on the Menu</h2>
-                    {{!-- Render burgers which have been added to the many that are not devoured --}}
-                    <div class="list-group">
-                        {{#each burgers }}
-                        {{#unless this.devoured}}
-                        <div class="list-group-item list-group-item-action list-group-item-light">
-                            <p>{{burger_name}}</p>
-                            <input input type="hidden" class="burger_id" type="text" value={{this.id}}>
-                            <button type="submit" class="btn btn-light devourButton" id={{id}}>Devour</button>
-                        </div>
-                        {{/unless}}
-                        {{/each}}
-                    </div>
-                </div>
-                <div class="col-m-6 mx-auto devoured-burgers">
-                    <h2>Devoured Burgers</h2>
-                    {{!-- Render burgers which have been devoured --}}
-                    <div class="list-group">
-                        {{#each burgers }}
-                        {{#if this.devoured}}
-                        <div class="list-group-item list-group-item-action list-group-item-secondary">{{burger_name}}
-                        </div>
-                        {{/if}}
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container bg-warning text-center">
-            <div class="row">
-                <div class="col-m-12 mx-auto">
-                    <br>
-                    <form action="/" method="POST" class="devourForm">
-                        <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="text"
-                                name="wish"></textarea>
-                            <br>
-                            <button type="submit" class="btn btn-primary submitButton" id="submitButton">Submit</button>
-                            <br>
-                            <br>
-                            <label for="exampleFormControlTextarea1">Enter a burger you want to eat then click the
-                                "Submit"
-                                button!</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <h2>Burgers Available on the Menu</h2>
+    {{#each burgers }}
+    {{#unless this.devoured}}
+    <div>
+        <p>{{burger_name}}</p>
+        <button type="submit" class="btn btn-light devourButton" id={{id}}>Devour</button>
     </div>
+    {{/unless}}
+    {{/each}}
+
+    <h2>Devoured Burgers</h2>
+    {{#each burgers }}
+    {{#if this.devoured}}
+    <div class="list-group-item list-group-item-action list-group-item-secondary">{{burger_name}}
+    </div>
+    {{/if}}
+    {{/each}}
+
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="text" name="wish"></textarea>
+    <br>
+    <button type="submit" class="btn btn-primary submitButton" id="submitButton">Submit</button>
+    <br>
+    <br>
+    <label for="exampleFormControlTextarea1">Enter a burger you want to eat then click the
+        "Submit"
+        button!</label>
+    </div>
+    </form>
+
 </body>
